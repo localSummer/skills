@@ -1,5 +1,7 @@
 # Claude Skills Collection
 
+**English** | [中文](./README.zh-CN.md)
+
 A repository of specialized skills designed to enhance Claude's capabilities in development, code analysis, and agent orchestration.
 
 ## Overview
