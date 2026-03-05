@@ -15,6 +15,7 @@ This project contains a set of high-quality, documented skills that follow struc
 | **Codex Subagent** | Spawns autonomous subagents to offload context-heavy tasks and research. | `codex-subagent/` |
 | **Skill Review** | Analyzes session history to propose improvements or new skill ideas. | `skill-review/` |
 | **Skill Validator** | Provides semantic validation of skill workflows and quality standards. | `skill-validator/` |
+| **Adversarial Review** | Multi-agent adversarial code review using three competing agents to filter noise and surface high-value insights. | `adversarial-review/` |
 
 ## Skill Details
 
@@ -33,15 +34,19 @@ A meta-skill used to iterate on the developer's toolkit. It harvests feedback fr
 ### [Skill Validator](./skill-validator/SKILL.md)
 A quality assurance tool that uses AI to perform semantic analysis on skill definitions. it ensures workflows are complete, transitions are logical, and best practices (like the inclusion of WHY/WHAT/HOW guidance) are followed.
 
+### [Adversarial Review](./adversarial-review/SKILL.md)
+A three-agent adversarial pipeline (Bug-finder, Defender, Referee) that uses competitive scoring to produce high-signal code reviews. The adversarial tension filters AI noise, leaving only actionable engineering insights for complex audits covering accessibility, performance, security, and type safety.
+
 ## Project Structure
 
 ```text
 skills/
-├── code-review/       # Git-based code change analysis
-├── codex-subagent/    # Background agent execution scripts
-├── mapping-loader/    # Mapping file discovery utilities
-├── skill-review/      # Dialogue feedback and iteration logic
-└── skill-validator/   # Semantic quality assurance tool
+├── adversarial-review/  # Multi-agent adversarial code review
+├── code-review/         # Git-based code change analysis
+├── codex-subagent/      # Background agent execution scripts
+├── mapping-loader/      # Mapping file discovery utilities
+├── skill-review/        # Dialogue feedback and iteration logic
+└── skill-validator/     # Semantic quality assurance tool
 ```
 
 ## Development Principles
