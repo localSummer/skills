@@ -10,34 +10,45 @@
 
 ## 可用技能
 
-| 技能 | 描述 | 目录 |
-| :--- | :--- | :--- |
-| **Mapping Loader** | 从 `~/.claude/mappings/` 查询代理、命令和技能的映射文件 | `mapping-loader/` |
-| **Code Review** | 基于 Git diff 生成带 Mermaid 图表的结构化评审报告 | `code-review/` |
-| **Codex Subagent** | 派生自治子代理来分担高上下文任务和研究工作 | `codex-subagent/` |
-| **Skill Review** | 分析会话历史以提出改进建议或新技能创意 | `skill-review/` |
-| **Skill Validator** | 对技能工作流进行语义验证和质量保障 | `skill-validator/` |
-| **Adversarial Review** | 三代理对抗式代码评审，过滤噪声并产出高价值工程洞察 | `adversarial-review/` |
+| 技能                    | 描述                                                    | 目录                   |
+| :---------------------- | :------------------------------------------------------ | :--------------------- |
+| **Mapping Loader**      | 从 `~/.claude/mappings/` 查询代理、命令和技能的映射文件 | `mapping-loader/`      |
+| **Code Review**         | 基于 Git diff 生成带 Mermaid 图表的结构化评审报告       | `code-review/`         |
+| **Codex Subagent**      | 派生自治子代理来分担高上下文任务和研究工作              | `codex-subagent/`      |
+| **Skill Review**        | 分析会话历史以提出改进建议或新技能创意                  | `skill-review/`        |
+| **Skill Validator**     | 对技能工作流进行语义验证和质量保障                      | `skill-validator/`     |
+| **Adversarial Review**  | 三代理对抗式代码评审，过滤噪声并产出高价值工程洞察      | `adversarial-review/`  |
+| **Slash Prompt Router** | 发现、推荐并执行本地 slash prompt 资源                  | `slash-prompt-router/` |
 
 ## 技能详情
 
 ### [Mapping Loader](./mapping-loader/SKILL.md)
+
 提供本地和插件资产的发现与执行工具。负责处理用户请求与系统实际文件路径之间的映射关系。
 
 ### [Code Review](./code-review/SKILL.md)
+
 全面的代码变更分析工作流。包含 Git 变更收集、工作流分析和可视化影响报告生成等脚本，帮助开发者理解代码演进过程。
 
 ### [Codex Subagent](./codex-subagent/SKILL.md)
+
 一个编排工具，允许 Claude 将重量级工作委托给后台子代理。推荐用于向当前上下文添加 3,000+ token 的任务，如深度研究或大规模代码库探索。
 
 ### [Skill Review](./skill-review/SKILL.md)
+
 用于迭代开发者工具箱的元技能。从对话中收集反馈，提出现有技能的优化建议或识别新技能需求。
 
 ### [Skill Validator](./skill-validator/SKILL.md)
+
 使用 AI 对技能定义进行语义分析的质量保障工具。确保工作流完整、状态转换合理，并遵循最佳实践（如包含 WHY/WHAT/HOW 指导）。
 
 ### [Adversarial Review](./adversarial-review/SKILL.md)
+
 三代理对抗式流水线（Bug-finder、Defender、Referee），通过竞争性评分产出高信噪比的代码评审结果。对抗性张力过滤 AI 噪声，仅保留可操作的工程洞察，覆盖可访问性、性能、安全性和类型安全等领域的复杂审计。
+
+### [Slash Prompt Router](./slash-prompt-router/SKILL.md)
+
+本地 slash prompt 资源的路由系统。能够列出可用 prompt、匹配用户请求到相关 prompt 候选，并将选定 prompt 作为操作流程执行。该技能包含 prompt 编目、排名和执行工作流，用于基于 prompt 的任务自动化。
 
 ## 项目结构
 
@@ -48,7 +59,8 @@ skills/
 ├── codex-subagent/      # 后台代理执行脚本
 ├── mapping-loader/      # 映射文件发现工具
 ├── skill-review/        # 对话反馈与迭代逻辑
-└── skill-validator/     # 语义质量保障工具
+├── skill-validator/     # 语义质量保障工具
+└── slash-prompt-router/ # Slash prompt 发现与执行路由
 ```
 
 ## 开发原则

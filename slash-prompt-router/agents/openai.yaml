@@ -1,0 +1,4 @@
+interface:
+  display_name: "Slash Prompt Router"
+  short_description: "列出本地 slash prompt、做需求匹配并执行选定 prompt"
+  default_prompt: "Use $slash-prompt-router to list local slash prompts, recommend the best fit for my task, and execute the one I choose."
